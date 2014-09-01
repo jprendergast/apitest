@@ -1,0 +1,27 @@
+<%= form_for(@household) do |f| %>
+  <% if @household.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@household.errors.count, "error") %> prohibited this household from being saved:</h2>
+
+      <ul>
+      <% @household.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :household %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :apitoken %>
+    <%= f.text_field :apitoken, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class:  "btn btn-primary" %>
+  </div>
+<% end %>
